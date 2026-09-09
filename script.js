@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
       this.musicTimer = null;
       this.currentNoteIndex = 0;
       this.isMuted = false;
+
+      // File nhạc MP3 chính
+      this.bgMusic = new Audio('assets/audio/birthday-song.mp3');
+      this.bgMusic.loop = true;
+      this.bgMusic.volume = 0.75;
       
       // Happy Birthday Melody (Notes & Durations)
       // C4, D4, E4, F4, G4, A4, B4, C5...
@@ -122,11 +127,21 @@ document.addEventListener('DOMContentLoaded', () => {
     startMusic() {
       this.init();
       this.isPlayingMusic = true;
-      this.playNextMelodyNote();
+      if (this.bgMusic) {
+        this.bgMusic.play().catch(e => {
+          console.warn('Trình duyệt chặn autoplay hoặc cần tương tác, chuyển sang giai điệu dự phòng:', e);
+          this.playNextMelodyNote();
+        });
+      } else {
+        this.playNextMelodyNote();
+      }
     }
 
     stopMusic() {
       this.isPlayingMusic = false;
+      if (this.bgMusic) {
+        this.bgMusic.pause();
+      }
       if (this.musicTimer) {
         clearTimeout(this.musicTimer);
         this.musicTimer = null;
