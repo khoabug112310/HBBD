@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Anh Đặng Thành Nguyên! 🎉🎂</title>
+  <meta name="description" content="Trang web chúc mừng sinh nhật anh Đặng Thành Nguyên - Tràn ngập pháo hoa, hoa hồng, kỷ niệm và trò chơi thú vị!">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fullscreen Particle Canvases -->
+  <canvas id="fireworksCanvas"></canvas>
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Sound Toggle & Floating Action Buttons -->
+  <aside class="floating-controls" aria-label="Thanh công cụ tương tác">
+    <button id="musicToggleBtn" class="control-btn" title="Bật/Tắt Nhạc Sinh Nhật" aria-label="Bật hoặc tắt nhạc nền">
+      <i class="fa-solid fa-music"></i>
+      <span class="btn-ripple"></span>
+    </button>
+    <button id="triggerFireworkBtn" class="control-btn" title="Bắn Thêm Pháo Hoa" aria-label="Bắn pháo hoa">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </button>
+    <button id="triggerPetalBtn" class="control-btn" title="Mưa Hoa Hồng Rơi" aria-label="Tăng mật độ hoa hồng rơi">
+      <i class="fa-solid fa-spa"></i>
+    </button>
+    <button id="scrollTopBtn" class="control-btn" title="Lên Đầu Trang" aria-label="Cuộn lên đầu trang">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </aside>
+
+  <!-- 1. HERO OPENING OVERLAY (Mystery Gift Box) -->
+  <section id="giftIntroModal" class="gift-intro-modal">
+    <div class="gift-modal-content">
+      <div class="sparkle-aura"></div>
+      <div class="gift-box-wrapper" id="giftBoxContainer">
+        <div class="gift-box" id="mainGiftBox">
+          <div class="gift-lid">
+            <div class="ribbon-bow"></div>
+          </div>
+          <div class="gift-body">
+            <div class="ribbon-v"></div>
+            <div class="ribbon-h"></div>
+          </div>
+        </div>
+      </div>
+      <p class="gift-tagline">Món quà đặc biệt từ mọi người dành tặng</p>
+      <h2 class="gift-recipient">Anh Đặng Thành Nguyên</h2>
+      <p class="gift-subtext">Chạm vào hộp quà để bắt đầu buổi tiệc sinh nhật rực rỡ! ✨</p>
+      <button id="openGiftBtn" class="btn-primary-glow">
+        <i class="fa-solid fa-gift"></i> Mở Hộp Quà Sinh Nhật
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN WRAPPER -->
+  <main class="page-container" id="mainContent">
+
+    <!-- 2. HERO SECTION -->
+    <header class="hero-section" id="hero">
+      <div class="hero-background-glow"></div>
+      
+      <div class="hero-badge">
+        <i class="fa-solid fa-crown text-gold"></i> Special Birthday Celebration
+      </div>
+
+      <div class="hero-portrait-frame">
+        <div class="portrait-glow"></div>
+        <img src="assets/images/portrait.jpg" alt="Chân dung anh Đặng Thành Nguyên" class="hero-portrait" id="heroPortraitImg">
+        <div class="portrait-tag">Anh Đặng Thành Nguyên 🎂</div>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="sub-script">Happy Birthday</span>
+        <span class="main-name">Đặng Thành Nguyên</span>
+      </h1>
+
+      <p class="hero-quote">
+        “Chúc anh một tuổi mới ngập tràn năng lượng đỉnh cao, vạn sự hanh thông, công danh rực rỡ và luôn nở nụ cười hạnh phúc rạng rỡ!”
+      </p>
+
+      <div class="hero-actions">
+        <a href="#cakeSection" class="btn-luxury">
+          <i class="fa-solid fa-cake-candles"></i> Thổi Nến Sinh Nhật
+        </a>
+        <a href="#gamesSection" class="btn-luxury-outline">
+          <i class="fa-solid fa-gamepad"></i> Vui Mini-Games
+        </a>
+      </div>
+
+      <div class="scroll-down-indicator">
+        <span>Khám phá tiếp</span>
+        <i class="fa-solid fa-angles-down bounce"></i>
+      </div>
+    </header>
+
+    <!-- 3. CAKE & SECRET LETTER SECTION -->
+    <section class="section-container" id="cakeSection">
+      <div class="section-header">
+        <span class="badge-tag">Điều ước sinh nhật</span>
+        <h2 class="section-title">Thổi Nến & Bức Thư Bí Mật</h2>
+        <p class="section-desc">Hãy gửi gắm một điều ước chân thành nhất trong tuổi mới và thổi nến anh nhé!</p>
+      </div>
+
+      <div class="cake-interactive-stage">
+        <div class="cake-card-glow">
+          <div class="cake-image-wrap">
+            <img src="assets/images/cake.jpg" alt="Bánh kem sinh nhật anh Đặng Thành Nguyên" class="cake-img">
+            
+            <!-- Virtual Candles with Flickering Flames -->
+            <div class="virtual-candles" id="virtualCandles">
+              <div class="candle c1"><div class="flame"></div></div>
+              <div class="candle c2"><div class="flame"></div></div>
+              <div class="candle c3"><div class="flame"></div></div>
+              <div class="candle c4"><div class="flame"></div></div>
+              <div class="candle c5"><div class="flame"></div></div>
+            </div>
+          </div>
+
+          <div class="cake-controls">
+            <button id="blowCandleBtn" class="btn-flame-action">
+              <i class="fa-solid fa-wind"></i> Thổi Tắt Nến Ước Nguyện
+            </button>
+            <p id="candleWishStatus" class="wish-status-text">
+              ✨ Nến đang sáng rực! Nhấn nút trên để thổi nến và mở thư chúc mừng.
+            </p>
+          </div>
+        </div>
+
+        <!-- Secret Letter (Appears after blowing candles) -->
+        <div class="letter-envelope-container" id="secretEnvelope">
+          <div class="envelope-card">
+            <div class="wax-seal" id="waxSeal">
+              <span>TN</span>
+            </div>
+            <div class="letter-content" id="letterBody">
+              <div class="letter-header">
+                <i class="fa-solid fa-heart text-rose"></i>
+                <h3>Gửi anh Đặng Thành Nguyên thân mến,</h3>
+              </div>
+              <div class="letter-text">
+                <p>Nhân ngày sinh nhật đặc biệt của anh, toàn thể anh em, đồng nghiệp và bạn bè xin gửi tới anh những lời chúc tốt đẹp, ấm áp và chân thành nhất!</p>
+                <p>Cảm ơn anh vì luôn là người anh cả nhiệt huyết, luôn hỗ trợ, chia sẻ và truyền cảm hứng tích cực cho mọi người xung quanh trong mọi công việc cũng như cuộc sống thường ngày.</p>
+                <p>Bước sang tuổi mới, chúc anh:</p>
+                <ul>
+                  <li>💎 Sức khỏe dồi dào, tâm thế vững vàng để chinh phục mọi mục tiêu lớn.</li>
+                  <li>🚀 Sự nghiệp thăng hoa vượt bậc, gặt hái vô vàn thành công rực rỡ.</li>
+                  <li>❤️ Gia đình luôn ngập tràn tiếng cười, niềm hạnh phúc và may mắn trọn vẹn!</li>
+                </ul>
+                <p class="letter-sign">Happy Birthday, Our Inspiring Leader & Brother! 🎉🥂</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PHOTO GALLERY SECTION -->
+    <section class="section-container" id="gallerySection">
+      <div class="section-header">
+        <span class="badge-tag">Bộ sưu tập</span>
+        <h2 class="section-title">Khoảnh Khắc Đáng Nhớ</h2>
+        <p class="section-desc">Những hình ảnh và kỷ niệm tuyệt vời gắn liền với hành trình của anh Nguyên</p>
+      </div>
+
+      <!-- Filter Categories -->
+      <div class="gallery-filters" id="galleryFilterBar">
+        <button class="filter-btn active" data-filter="all">Tất cả ảnh</button>
+        <button class="filter-btn" data-filter="hero">Chân dung ngầu</button>
+        <button class="filter-btn" data-filter="travel">Đi chơi & Du lịch</button>
+        <button class="filter-btn" data-filter="celebrate">Tiệc tùng & Kỷ niệm</button>
+      </div>
+
+      <!-- Photo Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Card 1 -->
+        <div class="gallery-card" data-category="hero">
+          <div class="gallery-card-inner">
+            <img src="assets/images/portrait.jpg" alt="Khoảnh khắc thần thái">
+            <div class="card-overlay">
+              <span class="photo-badge">Phong độ</span>
+              <h4>Thần Thái Rạng Rỡ</h4>
+              <p>Nụ cười tỏa nắng chuẩn quý ông của anh Nguyên!</p>
+              <button class="btn-zoom-photo" data-img="assets/images/portrait.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="gallery-card" data-category="celebrate">
+          <div class="gallery-card-inner">
+            <img src="assets/images/cake.jpg" alt="Bánh sinh nhật">
+            <div class="card-overlay">
+              <span class="photo-badge">Ngọt ngào</span>
+              <h4>Bánh Sinh Nhật Sang Xịn</h4>
+              <p>Chiếc bánh đong đầy tình cảm mọi người dành cho anh.</p>
+              <button class="btn-zoom-photo" data-img="assets/images/cake.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="gallery-card" data-category="travel">
+          <div class="gallery-card-inner">
+            <img src="assets/images/moment1.jpg" alt="Du lịch biển hoàng hôn">
+            <div class="card-overlay">
+              <span class="photo-badge">Chill & Tự do</span>
+              <h4>Hoàng Hôn Trên Biển</h4>
+              <p>Những chuyến đi nạp đầy năng lượng và khám phá mới.</p>
+              <button class="btn-zoom-photo" data-img="assets/images/moment1.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="gallery-card" data-category="celebrate">
+          <div class="gallery-card-inner">
+            <img src="assets/images/moment2.jpg" alt="Nâng ly chúc mừng">
+            <div class="card-overlay">
+              <span class="photo-badge">Niềm vui</span>
+              <h4>Cùng Nâng Ly Chúc Mừng</h4>
+              <p>Khoảnh khắc vui hết mình, gắn kết bền lâu.</p>
+              <button class="btn-zoom-photo" data-img="assets/images/moment2.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="gallery-card" data-category="celebrate">
+          <div class="gallery-card-inner">
+            <img src="assets/images/moment3.jpg" alt="Đồng đội đoàn kết">
+            <div class="card-overlay">
+              <span class="photo-badge">Teamwork</span>
+              <h4>Sát Cánh Cùng Đồng Đội</h4>
+              <p>Làm hết sức, quẩy hết mình cùng những người anh em!</p>
+              <button class="btn-zoom-photo" data-img="assets/images/moment3.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="gallery-card" data-category="travel">
+          <div class="gallery-card-inner">
+            <img src="assets/images/moment4.jpg" alt="Tận hưởng cuộc sống">
+            <div class="card-overlay">
+              <span class="photo-badge">Hạnh phúc</span>
+              <h4>Trọn Vẹn Từng Giây Phút</h4>
+              <p>Mỗi bước đi đều để lại những dấu ấn ý nghĩa.</p>
+              <button class="btn-zoom-photo" data-img="assets/images/moment4.jpg"><i class="fa-solid fa-expand"></i> Phóng to</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. MINI-GAMES ZONE -->
+    <section class="section-container" id="gamesSection">
+      <div class="section-header">
+        <span class="badge-tag">Góc giải trí</span>
+        <h2 class="section-title">Khu Vực Trò Chơi Thú Vị 🎮</h2>
+        <p class="section-desc">Dành riêng cho anh Nguyên và mọi người thử vận may và xả stress!</p>
+      </div>
+
+      <!-- Game Tab Navigation -->
+      <div class="games-nav-tabs">
+        <button class="game-tab-btn active" data-game="wheel">
+          <i class="fa-solid fa-dharmachakra"></i> 1. Vòng Quay May Mắn
+        </button>
+        <button class="game-tab-btn" data-game="memory">
+          <i class="fa-solid fa-clone"></i> 2. Lật Hình Trí Nhớ
+        </button>
+        <button class="game-tab-btn" data-game="balloons">
+          <i class="fa-solid fa-bullseye"></i> 3. Nổ Bóng Bắt Quà
+        </button>
+      </div>
+
+      <!-- GAME 1: LUCKY WHEEL -->
+      <div class="game-panel active" id="gamePanelWheel">
+        <div class="wheel-game-layout">
+          <div class="wheel-canvas-wrapper">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheelCanvas" width="460" height="460"></canvas>
+            <button id="spinWheelBtn" class="spin-center-btn">
+              QUAY<br><span>NGAY</span>
+            </button>
+          </div>
+
+          <div class="wheel-info-card">
+            <h3><i class="fa-solid fa-gift text-gold"></i> Đặc Quyền Sinh Nhật</h3>
+            <p>Mỗi lượt quay là 1 đặc quyền hoặc phần quà siêu xịn từ đồng nghiệp và bạn bè dành riêng cho anh Nguyên!</p>
+            <ul class="wheel-prize-list">
+              <li>☕ 1 ly cà phê/trà sữa tự chọn</li>
+              <li>🍱 1 bữa trưa thịnh soạn từ team</li>
+              <li>👑 Miễn toàn bộ việc vặt hôm nay</li>
+              <li>🎁 Món quà bất ngờ giấu tên</li>
+              <li>💌 Lời khen siêu ngọt ngào</li>
+              <li>🎬 1 vé xem phim cuối tuần</li>
+            </ul>
+            <div id="wheelResultBox" class="game-result-box hidden">
+              <span class="win-label">Kết Quả Vừa Quay:</span>
+              <h4 id="wheelWinText">Đang quay...</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME 2: MEMORY MATCH -->
+      <div class="game-panel" id="gamePanelMemory">
+        <div class="memory-game-header">
+          <div class="stat-badge">
+            <i class="fa-solid fa-stopwatch"></i> Thời gian: <span id="memoryTimer">00:00</span>
+          </div>
+          <div class="stat-badge">
+            <i class="fa-solid fa-hand-pointer"></i> Lượt lật: <span id="memoryMoves">0</span>
+          </div>
+          <button id="resetMemoryBtn" class="btn-refresh">
+            <i class="fa-solid fa-rotate-right"></i> Chơi lại
+          </button>
+        </div>
+
+        <div class="memory-board-grid" id="memoryGrid">
+          <!-- 12 Cards injected via JS -->
+        </div>
+
+        <div id="memoryWinModal" class="game-result-box hidden">
+          <h4>🎉 Chúc mừng anh Nguyên đã phá đảo trò chơi trí nhớ!</h4>
+          <p>Thời gian: <strong id="finalTime">00:00</strong> - Số lượt lật: <strong id="finalMoves">0</strong></p>
+        </div>
+      </div>
+
+      <!-- GAME 3: BALLOON POP -->
+      <div class="game-panel" id="gamePanelBalloons">
+        <div class="balloon-game-header">
+          <div class="stat-badge">
+            <i class="fa-solid fa-star text-gold"></i> Điểm số: <span id="balloonScore">0</span>
+          </div>
+          <p class="balloon-instruction">Nhấp nhanh vào những quả bóng bay lên để nổ và nhận quà chúc mừng!</p>
+          <button id="startBalloonBtn" class="btn-primary-glow">
+            <i class="fa-solid fa-play"></i> Bắt đầu chơi
+          </button>
+        </div>
+
+        <div class="balloon-game-stage" id="balloonStage">
+          <div class="balloon-empty-hint" id="balloonHint">
+            Nhấn "Bắt đầu chơi" để các quả bóng bay lên! 🎈
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WISHES WALL SECTION -->
+    <section class="section-container" id="wishesSection">
+      <div class="section-header">
+        <span class="badge-tag">Gửi trao yêu thương</span>
+        <h2 class="section-title">Bức Tường Lời Chúc 💌</h2>
+        <p class="section-desc">Gửi những lời chúc mừng chân thành và ý nghĩa nhất đến anh Đặng Thành Nguyên</p>
+      </div>
+
+      <!-- Wish Submission Form -->
+      <div class="wish-form-wrapper">
+        <form id="wishForm" class="wish-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="senderName"><i class="fa-solid fa-user"></i> Tên của bạn / Nickname</label>
+              <input type="text" id="senderName" placeholder="VD: Em Tuấn Anh, Team Marketing, ..." required>
+            </div>
+            <div class="input-group">
+              <label for="senderIcon"><i class="fa-solid fa-icons"></i> Biểu tượng lời chúc</label>
+              <select id="senderIcon">
+                <option value="👑">👑 Vương miện - Đẳng cấp</option>
+                <option value="🚀">🚀 Tên lửa - Thăng tiến</option>
+                <option value="🥂">🥂 Ly rượu - Nâng ly chúc mừng</option>
+                <option value="❤️">❤️ Trái tim - Tình cảm</option>
+                <option value="🌟">🌟 Ngôi sao - Tỏa sáng</option>
+                <option value="💪">💪 Cơ bắp - Sức khỏe dồi dào</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="wishMessage"><i class="fa-solid fa-envelope-open-text"></i> Lời chúc dành cho anh Nguyên</label>
+            <textarea id="wishMessage" rows="3" placeholder="Chúc anh Nguyên tuổi mới vạn sự hanh thông, luôn giữ vững ngọn lửa nhiệt huyết..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit-wish">
+            <i class="fa-solid fa-paper-plane"></i> Gửi Lời Chúc Lên Bảng
+          </button>
+        </form>
+      </div>
+
+      <!-- Wishes List -->
+      <div class="wishes-wall-grid" id="wishesGrid">
+        <!-- Pre-populated Wishes -->
+        <div class="wish-card">
+          <div class="wish-card-top">
+            <span class="wish-icon">🚀</span>
+            <div class="wish-author">
+              <strong>Team Công Nghệ & Dự Án</strong>
+              <small>Hôm nay</small>
+            </div>
+          </div>
+          <p class="wish-text">“Chúc sếp Nguyên tuổi mới bùng nổ KPI, code ít bug nhiều deal, sức khỏe vô biên và luôn dẫn dắt anh em tiến bước vững vàng!”</p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-card-top">
+            <span class="wish-icon">👑</span>
+            <div class="wish-author">
+              <strong>Hội Bạn Thân</strong>
+              <small>Hôm nay</small>
+            </div>
+          </div>
+          <p class="wish-text">“Happy Birthday ông bạn già Đặng Thành Nguyên! Tuổi mới đẹp trai hơn, phong độ ngời ngời, mau sớm cho anh em ăn cỗ nhé!”</p>
+        </div>
+
+        <div class="wish-card">
+          <div class="wish-card-top">
+            <span class="wish-icon">🥂</span>
+            <div class="wish-author">
+              <strong>Phòng Kế Hoạch & Marketing</strong>
+              <small>Hôm nay</small>
+            </div>
+          </div>
+          <p class="wish-text">“Chúc anh Nguyên luôn giữ được nụ cười tỏa sáng, sự nhiệt huyết truyền lửa và gặt hái thêm nhiều đỉnh cao thành tựu mới!”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page-footer">
+      <div class="footer-heart">
+        <i class="fa-solid fa-heart text-rose"></i>
+      </div>
+      <p class="footer-main">Kính chúc anh <strong>Đặng Thành Nguyên</strong> một ngày sinh nhật ngập tràn hạnh phúc và yêu thương!</p>
+      <p class="footer-sub">Designed with passion & happiness for Anh Nguyen's Special Day ✨</p>
+    </footer>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL FOR PHOTO ZOOM -->
+  <div id="lightboxModal" class="lightbox-modal">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImg" class="lightbox-content" alt="Ảnh phóng to">
+  </div>
+
+  <!-- Audio Synthesizer / Audio Script -->
+  <script src="script.js"></script>
+</body>
+</html>
